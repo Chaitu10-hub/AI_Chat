@@ -59,6 +59,7 @@ http://localhost:3000
 ---
 ### Running Manually
 # Backend Setup (FastAPI)
+cd backend
 Create a virtual environment:
 python -m venv venv
 

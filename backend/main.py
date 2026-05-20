@@ -20,14 +20,16 @@ class ChatRequest(BaseModel):
 def chat(req: ChatRequest):
     try:
         response = requests.post(
-            "http://host.docker.internal:11434/api/generate",
+            "http://localhost:11434/api/generate",
+            # if you are using docker desktop, you might need to change the URL to "http://host.docker.internal:11434/api/generate"
             json={
                 "model": "TinyLlama",
                 "prompt": req.message,
                 "stream": False   # <-- THIS FIXES YOUR ERROR
             },
-            timeout=60
+            timeout=180
         )
+
 
         data = response.json()
         reply = data.get("response", "No response from model")
